@@ -1,0 +1,109 @@
+@import "../../css-config/mixins.scss";
+.main-header {
+  width: 100%;
+  background-color: #212121;
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 99;
+  #include md {
+    padding: 0px;
+  }
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include md {
+      height: 80px;
+    }
+    .left {
+      list-style: none;
+      display: none;
+      gap: 25px;
+      @include md {
+        display: flex;
+      }
+      li {
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+    }
+
+    .center {
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      @include md {
+        font-size: 34px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      svg {
+        font-size: 20px;
+        cursor: pointer;
+        @include md {
+          font-size: 24px;
+        }
+      }
+      .cart-icon {
+        position: relative;
+        span {
+          min-width: 20px;
+          align-items: center;
+          text-align: center;
+          background-color: #8e2de2;
+          position: absolute;
+          padding: 2px;
+          top: -5px;
+          right: -12px;
+          font-size: 12px;
+          line-height: 1;
+          border-radius: 10px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          -o-border-radius: 10px;
+        }
+      }
+    }
+  }
+  &.sticky-header {
+    position: sticky;
+    transform: translateY(-80px);
+    top: 0;
+    animation: stickyHeader 1s ease forwards;
+    -webkit-animation: stickyHeader 1s ease forwards;
+  }
+}
+
+@keyframes stickyHeader {
+  0% {
+    transform: translateY(-80px);
+    -webkit-transform: translateY(-80px);
+    -moz-transform: translateY(-80px);
+    -ms-transform: translateY(-80px);
+    -o-transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
